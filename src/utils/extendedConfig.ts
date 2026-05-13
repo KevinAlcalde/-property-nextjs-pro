@@ -47,22 +47,22 @@ export const extendedConfig = {
     '999': '999'
   },
   colors: {
-    primary: "#1B2C6E",
-    secondary: "#E55C1B",
-    midnight_text: "#102D47",
-    gray: "#668199",
-    border: "#1b2c6e33",
+    primary: "#FF5114",       // --boton-fondo
+    secondary: "#0079CA",     // --iconos
+    midnight_text: "#212121", // --texto
+    gray: "#666666",          // --pie-fuente
+    border: "#FF511433",
     light: "#F0F6FA",
-    section: "#F8FAFC",
+    section: "#f5f5f5",       // --footer-fondo / --fondo
     darkmode: "#0c121e",
     semidark: "#0e1624",
     darklight: "#1F2A37",
     dark_border: "#224767",
-    herobg: "#E8EDF8",
+    herobg: "#f0f0f0",        // --fondo
     cyan: "#46C4FF",
     lightgray:"#e5e7eb",
     darkgray:"#374151",
-    skyBlue:"#E55C1B"
+    skyBlue:"#0079CA",        // --iconos
   },
   borderRadius: {
     'lg': '0.625rem',
