@@ -90,7 +90,7 @@ export default function Features() {
                     </div>
                     <div className='flex-1 '>
                         <div className="lg:pl-20 flex flex-col justify-center h-full">
-                            <p className='mb-8 md:mb-3.75 text-4xl font-bold text-midnight_text dark:text-white' data-aos="fade-left">Why People Choose Property</p>
+                            <p className='mb-8 md:mb-3.75 text-4xl font-bold text-midnight_text dark:text-white' data-aos="fade-left">Por qué elegir Módica Inmobiliaria</p>
                             {pageData.map(feature => (
                                 <div key={feature.id} className='flex mb-8 md:mb-3.75 items-center gap-8' data-aos="fade-left" data-aos-delay="100">
                                     <div className="bg-primary/20 p-4 rounded-full flex justify-center items-start">

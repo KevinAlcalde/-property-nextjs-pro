@@ -9,19 +9,18 @@ import Footer from "./components/layout/footer";
 import ScrollToTop from "./components/scroll-to-top";
 import Header from "./components/layout/header";
 import SessionProviderComp from "./provider/SessionProviderComp";
+import WhatsAppFloat from "./components/shared/whatsapp-float";
 
 export default function RootLayout({
   children,
-  session,
 }: Readonly<{
   children: React.ReactNode;
-  session:any
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={`${dmsans.className}`}>
       <AppContextProvider>
-      <SessionProviderComp session={session}>
+      <SessionProviderComp session={undefined}>
         <ThemeProvider
           attribute="class"
           enableSystem={false}
@@ -34,6 +33,7 @@ export default function RootLayout({
             <Footer />
           </Aoscompo>
           <ScrollToTop />
+          <WhatsAppFloat />
         </ThemeProvider>
         </SessionProviderComp>
         </AppContextProvider>

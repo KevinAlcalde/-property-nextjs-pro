@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Sign Up | Property-pro",
+    "Registrarse | Módica Inmobiliaria",
 };
 
 const SignupPage = () => {

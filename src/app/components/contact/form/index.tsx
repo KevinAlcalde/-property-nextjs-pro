@@ -34,7 +34,7 @@ const ContactForm = () => {
     e.preventDefault();
     setLoader(true);
 
-    fetch("https://formsubmit.co/ajax/bhainirav772@gmail.com", {
+    fetch("https://formsubmit.co/ajax/kevinalejandroalcalde@gmail.com", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -62,11 +62,11 @@ const ContactForm = () => {
         <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md">
           <div className="grid md:grid-cols-12 grid-cols-1 gap-8 items-center">  
             <div className="col-span-6">
-              <h2 className="max-w-72 text-[40px] leading-[1.2] font-bold mb-9">Get Online Consultation</h2>
+              <h2 className="max-w-72 text-[40px] leading-[1.2] font-bold mb-9">Consultá con nosotros</h2>
               <form onSubmit={handleSubmit} className="flex flex-wrap w-full m-auto justify-between">
                 <div className="sm:flex gap-3 w-full">
                   <div className="mx-0 my-2.5 flex-1">
-                    <label htmlFor="first-name" className="pb-3 inline-block text-17">First Name*</label>
+                    <label htmlFor="first-name" className="pb-3 inline-block text-17">Nombre*</label>
                     <input
                       id='firstname'
                       type='text'
@@ -77,7 +77,7 @@ const ContactForm = () => {
                     />
                   </div>
                   <div className="mx-0 my-2.5 flex-1">
-                    <label htmlFor="last-name" className="pb-3 inline-block text-17">Last Name*</label>
+                    <label htmlFor="last-name" className="pb-3 inline-block text-17">Apellido*</label>
                     <input
                       id='lastname'
                       type='text'
@@ -90,7 +90,7 @@ const ContactForm = () => {
                 </div>
                 <div className="sm:flex gap-3 w-full">
                   <div className="mx-0 my-2.5 flex-1">
-                    <label htmlFor="email" className="pb-3 inline-block text-17">Email address*</label>
+                    <label htmlFor="email" className="pb-3 inline-block text-17">Email*</label>
                     <input
                       id='email'
                       type='email'
@@ -101,27 +101,23 @@ const ContactForm = () => {
                     />
                   </div>
                   <div className="mx-0 my-2.5 flex-1">
-                    <label htmlFor="Specialist" className="pb-3 inline-block text-17">Specialist*</label>
-                    <select  
+                    <label htmlFor="Specialist" className="pb-3 inline-block text-17">Tipo de consulta*</label>
+                    <select
                     name="specialist"
                       id="specialist"
                       value={formData.specialist}
                       onChange={handleChange} className="custom-select w-full text-17 px-4 py-2.5 rounded-lg border-border dark:text-white border-solid dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0">
-                      <option value="">Choose a specialist</option>
-                      <option value="Baking &amp; Pastry">
-                        Choose a specialist
-                      </option>
-                      <option value="Exotic Cuisine">Exotic Cuisine</option>
-                      <option value="French Desserts">French Desserts</option>
-                      <option value="Seafood &amp; Wine">
-                        Choose a specialist
-                      </option>
+                      <option value="">Seleccioná una opción</option>
+                      <option value="Compra">Compra de propiedad</option>
+                      <option value="Venta">Venta de propiedad</option>
+                      <option value="Alquiler">Alquiler</option>
+                      <option value="Tasacion">Tasación gratuita</option>
                     </select>
                   </div>
                 </div>
                 <div className="sm:flex gap-3 w-full">
                   <div className="mx-0 my-2.5 flex-1">
-                    <label htmlFor="date" className="pb-3 inline-block text-17">Date*</label>
+                    <label htmlFor="date" className="pb-3 inline-block text-17">Fecha preferida*</label>
                     <input
                        id='date'
                       type='date'
@@ -132,7 +128,7 @@ const ContactForm = () => {
                     />
                   </div>
                   <div className="mx-0 my-2.5 flex-1">
-                    <label htmlFor="time" className="pb-3 inline-block text-17">Time*</label>
+                    <label htmlFor="time" className="pb-3 inline-block text-17">Hora*</label>
                     <input
                       id='time'
                       type='time'
@@ -145,7 +141,7 @@ const ContactForm = () => {
                 </div>
                 <div className="mx-0 my-2.5 w-full">
                   <button type="submit" className="bg-primary rounded-lg text-white py-4 px-8 mt-4 inline-block hover:bg-blue-700">
-                    Make an appointment
+                    Enviar consulta
                   </button>
                 </div>
               </form>

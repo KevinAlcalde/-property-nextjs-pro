@@ -12,20 +12,20 @@ export default function History() {
           data-aos="fade-right"
         >
           <p className="text-4xl text-midnight_text dark:text-white mb-8 font-bold">
-            Property History <br />
-            How we became number one
+            Tu inmobiliaria <br />
+            de confianza en Mendoza
           </p>
           <p className="mb-8 pb-2 text-gray">
-            Letraset sheets containing Lorem Ipsum passages and more recently
-            with desktop publishing. Various versions have evolved over the
-            years, sometimes by accident, sometimes as necessary making release
-            of Letraset sheets containing Lorem Ipsum passages.
+            En Módica Inmobiliaria acompañamos a familias y empresas en sus
+            decisiones inmobiliarias más importantes. Con más de 10 años en el
+            mercado mendocino, ofrecemos un servicio personalizado en compra,
+            venta y alquiler de propiedades en toda la provincia.
           </p>
           <Link
             href="/properties/properties-list"
             className="text-xl px-9 py-3 border border-primary text-primary hover:text-white hover:bg-primary rounded-lg"
           >
-            More Details
+            Ver propiedades
           </Link>
         </div>
         <div
@@ -34,23 +34,24 @@ export default function History() {
         >
           <div className="bg-white dark:bg-darklight dark:text-white p-4 max-w-60 border-4 border-primary rounded-lg">
             <p className="mb-16 text-3xl text-midnight_text dark:text-white font-bold">
-              BEST REAL ESTATE COMPANY
+              INMOBILIARIA DE CONFIANZA
             </p>
             <div className="flex justify-between">
               <div>
                 <p className="text-black text-opacity-60 dark:text-gray">
-                  Years Experience
+                  Años de experiencia
                 </p>
                 <p className="text-[65px] leading-[1.2] -mt-1 text-midnight_text dark:text-white font-bold mb-2">
-                  33
+                  10+
                 </p>
               </div>
               <div>
                 <Image
-                  src="/images/history/logo.svg"
-                  alt="company"
+                  src="/images/logo/logo-round.jpg"
+                  alt="Módica Inmobiliaria"
                   width={93}
-                  height={130}
+                  height={93}
+                  style={{ borderRadius: '50%' }}
                 />
               </div>
             </div>

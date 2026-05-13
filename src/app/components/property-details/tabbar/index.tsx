@@ -17,34 +17,34 @@ type TabLabel = 'Project Complex' | 'Project Park' | 'Project Gallery' | 'Projec
 // Define the content object with explicit types
 const content: Record<TabLabel, TabContent> = {
     'Project Complex': {
-        title: 'Values of smart living in Vista Residence, NY',
-        description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
+        title: 'Vivir bien en Mendoza',
+        description: 'Propiedades modernas con todos los servicios para que disfrutes de la mejor calidad de vida en la provincia.',
         features: [
-            'Wellness & Spa',
-            'Fitness',
-            'Conference',
-            'Library',
-            'Restaurant',
-            'Bars'
+            'Amenidades completas',
+            'Seguridad 24hs',
+            'Salón de usos múltiples',
+            'Biblioteca',
+            'Restaurante cercano',
+            'Bares'
         ],
         image: '/images/tabbar/tab-1.jpg'
     },
     'Project Park': {
-        title: 'Project Park Overview',
-        description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
-        features: ['Gardens', 'Playgrounds', 'Walking Trails'],
+        title: 'Espacios verdes y parques',
+        description: 'Propiedades con acceso a espacios verdes en los mejores barrios de Mendoza.',
+        features: ['Jardines', 'Áreas de juegos', 'Senderos peatonales'],
         image: '/images/tabbar/tab-2.jpg'
     },
     'Project Gallery': {
-        title: 'Explore the Gallery',
-        description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
-        features: ['Art Exhibitions', 'Cultural Events'],
+        title: 'Galería de propiedades',
+        description: 'Explorá nuestra selección de propiedades únicas disponibles en Mendoza.',
+        features: ['Propiedades exclusivas', 'Eventos culturales'],
         image: '/images/tabbar/tab-3.jpg'
     },
     'Project Villa': {
-        title: 'Luxury Villas',
-        description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
-        features: ['Private Pools', 'Gourmet Kitchens', 'Spacious Living Areas'],
+        title: 'Casas y fincas premium',
+        description: 'Las mejores casas, fincas y propiedades de lujo en Mendoza y alrededores.',
+        features: ['Piletas privadas', 'Cocinas equipadas', 'Amplias superficies'],
         image: '/images/tabbar/tab-4.jpg'
     }
 };

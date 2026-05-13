@@ -32,8 +32,8 @@ export default function AdvanceSearch({ category }: { category?: string }) {
     }, [])
 
     const breadcrumbLinks = [
-        { href: "/", text: "Home" },
-        { href: "/properties/properties-list", text: "Property List" },
+        { href: "/", text: "Inicio" },
+        { href: "/properties/properties-list", text: "Propiedades" },
     ];
 
 
@@ -81,14 +81,14 @@ export default function AdvanceSearch({ category }: { category?: string }) {
     return (
         <>
             <HeroSub
-                title={(filters?.category) ? filters?.category: "Properties List"}
-                description="Letraset sheets containing Lorem Ipsum passages and more recently with desktop publishing Variou"
+                title={(filters?.category) ? filters?.category: "Propiedades"}
+                description="Encontrá tu próxima propiedad en Mendoza. Filtrá por zona, tipo y operación."
                 breadcrumbLinks={breadcrumbLinks}
             />
             <section className='dark:bg-darkmode px-4'>
                 <div className='lg:max-w-screen-xl max-w-screen-md mx-auto'>
                     <div className='flex lg:hidden justify-between items-center mb-4'>
-                        <span className='text-2xl ml-4 '>Advance Filter</span>
+                        <span className='text-2xl ml-4 '>Filtros</span>
                         <button onClick={toggleOffCanvas} className='bg-blue-500 mr-4 text-white py-3 px-6 text-base rounded-lg'>
                             <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6' viewBox="0 0 24 24">
                                 <path fill="none" stroke="currentColor" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="1.5" d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z" />
@@ -106,7 +106,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                 <button onClick={toggleOffCanvas} className='absolute top-4 right-4 text-gray dark:text-gray-500'>
                                     ✕
                                 </button>
-                                <p className='mb-6 text-2xl font-semibold'>Advanced Search</p>
+                                <p className='mb-6 text-2xl font-semibold'>Búsqueda avanzada</p>
                                 <div className='flex flex-col gap-6'>
                                     {/* Map through keywords */}
                                     {searchData?.keywords?.map((option: any, index: any) => (
@@ -188,7 +188,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                     {/* Example button */}
                                     <div>
                                         <button className='bg-blue-500 text-white w-full py-3 px-6 text-base rounded-lg'>
-                                            Find Property
+                                            Buscar propiedades
                                         </button>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                     <div className='lg:grid lg:grid-cols-12 gap-4'>
                         <div className='hidden lg:block lg:col-span-4'>
                             <div className='py-14 px-8 bg-white dark:bg-semidark shadow-property rounded-lg'>
-                                <p className='mb-6 text-2xl font-semibold'>Advanced Search</p>
+                                <p className='mb-6 text-2xl font-semibold'>Búsqueda avanzada</p>
                                 <div className='flex flex-col gap-6'>
                                     {/* Map through keywords */}
                                     {searchData?.keywords?.map((option: any, index: any) => (
@@ -248,7 +248,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                     {/* Example button */}
                                     <div>
                                         <button className='bg-primary hover:bg-blue-700 text-white w-full py-3 px-6 text-base rounded-lg'>
-                                            Find Property
+                                            Buscar propiedades
                                         </button>
                                     </div>
                                 </div>
@@ -257,9 +257,9 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                         <div className='col-span-12 lg:col-span-8'>
                             <div className="flex lg:flex-nowrap flex-wrap lg:gap-0 gap-6 w-full justify-between items-center pb-8">
                                 <div className="flex w-full justify-between px-4 flex-1">
-                                    <h5 className='text-xl '>{filteredCount} Properties Found</h5>
+                                    <h5 className='text-xl '>{filteredCount} Propiedades encontradas</h5>
                                     <p className='flex text-gray dark:text-gray gap-2 items-center'>
-                                        Sort by
+                                        Ordenar
                                         <span>
                                             <Icon
                                                 icon="fa6-solid:arrow-trend-up"
@@ -277,9 +277,9 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                         value={sortOrder}
                                         onChange={(e) => setSortOrder(e.target.value)}
                                     >
-                                        <option value="none">Sort by Title</option>
-                                        <option value="asc">Title (A-Z)</option>
-                                        <option value="desc">Title (Z-A)</option>
+                                        <option value="none">Ordenar por título</option>
+                                        <option value="asc">Título (A-Z)</option>
+                                        <option value="desc">Título (Z-A)</option>
                                     </select>
 
                                     <button onClick={() => setViewMode('list')} className={`${viewMode == "list" ? 'bg-primary text-white' : 'bg-transparent text-primary'} p-3 border border-primary text-primary hover:text-white rounded-lg hover:bg-primary text-base`}>
@@ -313,7 +313,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                 :
                                 <div className='flex flex-col gap-5 items-center justify-center pt-20'>
                                     <Image src={"/images/not-found/no-results.png"} alt='no-result' width={100} height={100} />
-                                    <p className='text-gray'>No result found</p>
+                                    <p className='text-gray'>Sin resultados</p>
                                 </div>
                             }
                         </div>

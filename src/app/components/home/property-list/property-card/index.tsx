@@ -75,7 +75,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
                 {property.beds}
               </p>
               <p className="text-sm text-gray">
-                Bedrooms
+                Dormitorios
               </p>
             </div>
             <div className="flex flex-col">
@@ -90,7 +90,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
                 {property.bathrooms}
               </p>
               <p className="text-sm text-gray">
-                Bathroom
+                Baños
               </p>
             </div>
             <div className="flex flex-col">
@@ -105,7 +105,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
                 {property.livingArea}
               </p>
               <p className="text-sm text-gray">
-                Living Area
+                Superficie
               </p>
             </div>
           </div>

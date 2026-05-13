@@ -6,7 +6,7 @@ export default function TextSection() {
         <section className='py-0 dark:bg-darkmode'>
             <div className='max-w-4xl mx-auto text-center text-gray' data-aos='fade-up'>
                 <p className='text-base sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-6 md:px-8'>
-                    Aenean facilisis, neque id sagittis volutpat, sapien nibh porttitor neque, et ullamcorper justo lectus tempus neque. Donec maximus dolor mauris, ut lacinia sem blandit eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+                    En Módica Inmobiliaria te acompañamos en cada paso del proceso de compra, venta o alquiler. Nuestro equipo de asesores conoce el mercado mendocino en profundidad y está comprometido a brindarte la mejor experiencia inmobiliaria.
                 </p>
             </div>
         </section>

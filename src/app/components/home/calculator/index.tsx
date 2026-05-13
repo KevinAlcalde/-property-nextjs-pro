@@ -26,11 +26,11 @@ export default function Calculator() {
             className="text-4xl mb-4 font-bold text-midnight_text dark:text-white"
             data-aos="fade-left"
           >
-            Save Your Money
+            Ahorrá con Módica
           </h2>
           <p className="text-xl text-gray mb-12" data-aos="fade-left">
-            Sometimes by accident, sometimes chunks as necessary making this the
-            first true generator on the Internet.
+            Asesoramiento personalizado para que tomes la mejor decisión en tu
+            inversión inmobiliaria en Mendoza.
           </p>
           <div className="relative-container">
             <div className="main-div mb-16 pt-8">
@@ -41,9 +41,9 @@ export default function Calculator() {
                   data-aos-delay="100"
                 >
                   <p className="text-3xl text-midnight_text dark:text-white">
-                    3% Save
+                    3% Ahorro
                   </p>
-                  <p className="text-gray text-base">Above $50K</p>
+                  <p className="text-gray text-base">En propiedades &gt; $50K</p>
                 </div>
                 <div
                   className="money-dot relative"
@@ -51,9 +51,9 @@ export default function Calculator() {
                   data-aos-delay="200"
                 >
                   <p className="text-3xl text-midnight_text dark:text-white">
-                    5% Save
+                    5% Ahorro
                   </p>
-                  <p className="text-gray text-base">Above $75K</p>
+                  <p className="text-gray text-base">En propiedades &gt; $75K</p>
                 </div>
                 <div
                   className="money-dot relative"
@@ -61,9 +61,9 @@ export default function Calculator() {
                   data-aos-delay="300"
                 >
                   <p className="text-3xl text-midnight_text dark:text-white">
-                    8% Save
+                    8% Ahorro
                   </p>
-                  <p className="text-gray text-base">Above $90K</p>
+                  <p className="text-gray text-base">En propiedades &gt; $90K</p>
                 </div>
               </div>
             </div>
@@ -73,20 +73,20 @@ export default function Calculator() {
               href="/properties/properties-list"
               className="text-xl bg-primary py-3 px-8 text-white rounded-lg me-3 mb-2 border border-primary hover:bg-blue-700"
             >
-              Buy House
+              Comprar
             </Link>
             <Link
               href="/properties/properties-list"
               className="text-xl hover:bg-primary hover:text-white py-3 px-8 text-primary border border-primary rounded-lg me-3 mb-2"
             >
-              Sell House
+              Vender
             </Link>
           </div>
         </div>
         <div className="lg:w-auto w-full" data-aos="fade-right">
           <div className="bg-primary rounded-t-lg p-16 w-full">
             <p className="text-4xl text-white mb-6 font-bold flex items-center justify-center">
-              Savings Calculator
+              Calculadora de Ahorro
             </p>
             <div className="flex justify-center">
               <div className="flex p-3 border-4 rounded-full bg-transparent border-cyan items-center justify-center">
@@ -98,7 +98,7 @@ export default function Calculator() {
                   }`}
                   onClick={() => handleTabChange("buy")}
                 >
-                  Buy
+                  Comprar
                 </button>
                 <button
                   className={`px-6 py-2 text-base focus:outline-none ${
@@ -108,13 +108,13 @@ export default function Calculator() {
                   }`}
                   onClick={() => handleTabChange("sell")}
                 >
-                  Sell
+                  Vender
                 </button>
               </div>
             </div>
             <div className="items-center justify-center mt-12">
               <p className="text-white flex items-center justify-center font-bold">
-                SAVINGS
+                AHORRO ESTIMADO
               </p>
               <p className="mb-6 text-white flex items-center justify-center font-bold text-[50px] leading-[1.2]">
                 ${price}
@@ -135,13 +135,12 @@ export default function Calculator() {
             </div>
           </div>
           <div className="p-4 bg-blue-700 text-white text-xl rounded-b-lg">
-            <p className="text-center mb-1 opacity-70">Have Questions?</p>
+            <p className="text-center mb-1 opacity-70">¿Tenés dudas?</p>
             <Link
-              href={"tel:+909 887 0980"}
+              href={"tel:+5492616974513"}
               className="text-center font-bold inline-block w-full"
             >
-              <span className="opacity-70 !font-normal">Call us : </span>+909
-              887 0980
+              <span className="opacity-70 !font-normal">Llamanos: </span>261 697-4513
             </Link>
           </div>
         </div>

@@ -32,8 +32,8 @@ export default function Details() {
   const item = properties.find((item) => item.slug === slug);
 
   const breadcrumbLinks = [
-    { href: "/", text: "Home" },
-    { href: "/property-list", text: "Property Details" },
+    { href: "/", text: "Inicio" },
+    { href: "/properties/properties-list", text: "Detalle de propiedad" },
   ];
   return (
     <div>

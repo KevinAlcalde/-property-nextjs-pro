@@ -26,12 +26,12 @@ export default function Testimonials() {
                             width={135}
                         />
                         <p className="text-lg md:text-2xl text-gray mb-6 md:mb-12">
-                            Letraset sheets containing Lorem Ipsum passages and more recently
-                            with desktop publishing Various versions have evolved over the
-                            years, sometimes
+                            Kevin nos acompañó en todo el proceso de compra de nuestra casa.
+                            Siempre estuvo disponible, respondió todas nuestras dudas y nos
+                            ayudó a encontrar exactamente lo que buscábamos en Mendoza.
                         </p>
-                        <p className="text-lg md:text-2xl">Stephanie Sue</p>
-                        <p className="text-gray text-lg md:text-xl">Designation</p>
+                        <p className="text-lg md:text-2xl">Lorena Gutiérrez</p>
+                        <p className="text-gray text-lg md:text-xl">Cliente satisfecha</p>
                     </div>
                 </div>
             </div>

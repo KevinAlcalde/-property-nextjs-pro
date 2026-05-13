@@ -47,22 +47,22 @@ export const extendedConfig = {
     '999': '999'
   },
   colors: {
-    primary: "#2F73F2",
-    secondary: "#547593",
+    primary: "#1B2C6E",
+    secondary: "#E55C1B",
     midnight_text: "#102D47",
     gray: "#668199",
-    border: "#6bc5f94d",
+    border: "#1b2c6e33",
     light: "#F0F6FA",
     section: "#F8FAFC",
     darkmode: "#0c121e",
     semidark: "#0e1624",
     darklight: "#1F2A37",
     dark_border: "#224767",
-    herobg: "#D1F2FF",
+    herobg: "#E8EDF8",
     cyan: "#46C4FF",
     lightgray:"#e5e7eb",
     darkgray:"#374151",
-    skyBlue:"#35B4F6"
+    skyBlue:"#E55C1B"
   },
   borderRadius: {
     'lg': '0.625rem',

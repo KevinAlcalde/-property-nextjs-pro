@@ -3,42 +3,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import Logo from "./logo";
 import HeaderLink from "./navigation/HeaderLink";
 import MobileHeaderLink from "./navigation/MobileHeaderLink";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
-  const { data: session } = useSession();
   const { theme, setTheme } = useTheme();
 
   const [data, setData] = useState<any[]>([]);
-  const [user, setUser] = useState<{ user: any } | null>(null);
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
-  const [isSignInOpen, setIsSignInOpen] = useState(false);
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
 
-  const navbarRef = useRef<HTMLDivElement>(null);
-  const signInRef = useRef<HTMLDivElement>(null);
-  const signUpRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
-  // Function to handle scroll to set sticky class
   const handleScroll = () => {
     setSticky(window.scrollY >= 80);
   };
 
-  // Function to handle click outside
   const handleClickOutside = (event: MouseEvent) => {
-    if (signInRef.current && !signInRef.current.contains(event.target as Node)) {
-      setIsSignInOpen(false);
-    }
-    if (signUpRef.current && !signUpRef.current.contains(event.target as Node)) {
-      setIsSignUpOpen(false);
-    }
     if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) && navbarOpen) {
       setNavbarOpen(false);
     }
@@ -51,14 +34,10 @@ const Header: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [navbarOpen, isSignInOpen, isSignUpOpen]);
+  }, [navbarOpen]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -67,28 +46,16 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/layoutdata')
-        if (!res.ok) throw new Error('Failed to fetch')
-
-        const data = await res.json()
-        setData(data?.headerData || [])
+        const res = await fetch('/api/layoutdata');
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        setData(data?.headerData || []);
       } catch (error) {
-        console.error('Error fetching services:', error)
+        console.error('Error fetching nav:', error);
       }
-    }
-
-    fetchData()
-  }, [])
-
-  console.log("data",data);
-  
-
-
-  const handleSignOut = () => {
-    localStorage.removeItem("user");
-    signOut();
-    setUser(null);
-  };
+    };
+    fetchData();
+  }, []);
 
   return (
     <header
@@ -97,7 +64,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between px-4 py-6">
         <Logo />
         <nav className="hidden lg:flex flex-grow items-center justify-center space-x-6">
-          {data.map((item:any, index:any) => (
+          {data.map((item: any, index: any) => (
             <HeaderLink key={index} item={item} />
           ))}
         </nav>
@@ -121,42 +88,14 @@ const Header: React.FC = () => {
             </svg>
           </button>
 
-          {user?.user || session?.user ? (
-            <>
-              <div className="relative group flex items-center justify-center">
-                <Image src={"/images/avatar/avatar_1.jpg"} alt="avatar" width={35} height={35} className="rounded-full" />
-                <p
-                  className="absolute w-fit text-sm font-medium text-center z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-primary text-white py-1 px-2 min-w-28 rounded-lg shadow-2xl top-full left-1/2 transform -translate-x-1/2 mt-3"
-                >
-                  {user?.user || session?.user?.name}
-                </p>
-              </div>
-              <button
-                onClick={() => handleSignOut()}
-                className="hidden lg:block bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
-              >
-                Sign Out
-              </button>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/signin"
-                className="hidden lg:block bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
-              >
-                Sign In
-              </Link>
-
-              <Link
-                href="/signup"
-                className="hidden lg:block bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-              >
-                Sign Up
-              </Link>
-            </>
-          )}
-
-
+          <Link
+            href="https://wa.me/5492616974513"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:block bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 text-sm font-semibold"
+          >
+            Contactar
+          </Link>
 
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
@@ -177,56 +116,27 @@ const Header: React.FC = () => {
         className={`lg:hidden fixed top-0 z-50 right-0 h-full w-full bg-white dark:bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${navbarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4">
-          <h2 className="text-lg font-bold text-midnight_text dark:text-white">Menu</h2>
+          <h2 className="text-lg font-bold text-midnight_text dark:text-white">Menú</h2>
           <button onClick={() => setNavbarOpen(false)} aria-label="Close mobile menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="dark:text-white">
-              <path
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
         <nav className="flex flex-col items-start p-4">
-          {data.map((item:any, index:any) => (
+          {data.map((item: any, index: any) => (
             <MobileHeaderLink key={index} item={item} />
           ))}
-          <div className="mt-4 flex flex-col space-y-4 w-full">
-            {user?.user || session?.user ? (
-              <>
-                <button
-                  className="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
-                  onClick={() => handleSignOut()}
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/signin"
-                  className="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white"
-                  onClick={() => {
-                    setNavbarOpen(false);
-                  }}
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-                  onClick={() => {
-                    setNavbarOpen(false);
-                  }}
-                >
-                  Sign Up
-                </Link>
-              </>
-            )}
+          <div className="mt-4 w-full">
+            <Link
+              href="https://wa.me/5492616974513"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 font-semibold"
+              onClick={() => setNavbarOpen(false)}
+            >
+              Contactar por WhatsApp
+            </Link>
           </div>
         </nav>
       </div>

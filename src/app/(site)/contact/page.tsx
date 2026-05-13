@@ -6,19 +6,19 @@ import ContactInfo from "@/app/components/contact/contact-info";
 import ContactForm from "@/app/components/contact/form";
 import Location from "@/app/components/contact/office-location";
 export const metadata: Metadata = {
-  title: "Contact | Property-pro",
+  title: "Contacto | Módica Inmobiliaria",
 };
 
 const page = () => {
   const breadcrumbLinks = [
-    { href: "/", text: "Home" },
-    { href: "/contact", text: "Contact" },
+    { href: "/", text: "Inicio" },
+    { href: "/contact", text: "Contacto" },
   ];
   return (
     <>
       <HeroSub
-        title="Contact Us"
-        description="Letraset sheets containing Lorem Ipsum passages and more recently with desktop publishing Variou"
+        title="Contactanos"
+        description="Estamos para ayudarte. Escribinos o llamanos y te respondemos a la brevedad."
         breadcrumbLinks={breadcrumbLinks}
       />
       <ContactInfo />
