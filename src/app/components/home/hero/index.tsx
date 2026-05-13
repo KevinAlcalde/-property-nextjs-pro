@@ -8,6 +8,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const SLIDES = [
+  "/images/hero/slide-1.webp",
+  "/images/hero/slide-2.webp",
+  "/images/hero/slide-3.webp",
+];
+
 const Hero = () => {
   const router = useRouter();
   const [propertiesData, setPropertiesData] = useState<any[]>([]);
@@ -52,139 +58,146 @@ const Hero = () => {
   const currentTag = activeTab === "venta" ? "Sell" : "Rent";
 
   return (
-    <section className="relative pt-44 pb-0 dark:bg-darklight bg-no-repeat bg-gradient-to-b from-white from-10% dark:from-darkmode to-herobg to-90% dark:to-darklight overflow-x-hidden">
-      <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md relative z-10">
-        <div className="grid lg:grid-cols-12 grid-cols-1">
-          <div
-            className="flex flex-col col-span-6 justify-center items-start"
-            data-aos="fade-right"
-          >
-            <div className="mb-8">
-              <h1 className="md:text-[50px] leading-[1.2] text-4xl ml-4 text-midnight_text dark:text-white font-bold">
-                Encontrá tu propiedad ideal en Mendoza
-              </h1>
+    <section className="relative h-[620px] lg:h-[700px] overflow-hidden">
+
+      {/* Slider de fondo — ocupa toda la sección */}
+      <div
+        className="absolute inset-0 z-0
+          [&_.slick-slider]:h-full
+          [&_.slick-list]:h-full
+          [&_.slick-track]:h-full
+          [&_.slick-slide]:h-full
+          [&_.slick-slide>div]:h-full"
+      >
+        <Slider
+          autoplay
+          autoplaySpeed={4500}
+          infinite
+          speed={900}
+          slidesToShow={1}
+          slidesToScroll={1}
+          arrows={false}
+          dots={false}
+        >
+          {SLIDES.map((src, i) => (
+            <div key={i} className="relative h-full">
+              <Image
+                src={src}
+                alt={`Módica Inmobiliaria ${i + 1}`}
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                priority={i === 0}
+              />
             </div>
-            <div className="max-w-xl ml-4 sm:w-full">
-              <div className="flex gap-1 bg-transparent">
-                <button
-                  className={`px-9 py-3 text-xl rounded-t-md focus:outline-none ${activeTab === "venta"
-                    ? "bg-white dark:bg-darkmode text-midnight_text dark:text-white border-b border-primary"
-                    : "text-midnight_text bg-white bg-opacity-50 dark:text-white dark:bg-darkmode dark:bg-opacity-50"
-                    }`}
-                  onClick={() => setActiveTab("venta")}
-                >
-                  Venta
-                </button>
-                <button
-                  className={`px-9 py-3 text-xl rounded-t-md focus:outline-none ${activeTab === "alquiler"
-                    ? "bg-white dark:bg-darkmode dark:text-white text-midnight_text border-b border-primary"
-                    : "text-midnight_text bg-white bg-opacity-50 dark:text-white dark:bg-darkmode dark:bg-opacity-50"
-                    }`}
-                  onClick={() => setActiveTab("alquiler")}
-                >
-                  Alquiler
-                </button>
-              </div>
-              <div className="bg-white dark:bg-transparent rounded-b-lg rounded-tr-lg">
-                <div className="bg-white dark:bg-darkmode rounded-b-lg rounded-tr-lg shadow-lg p-8 pb-10">
-                  <div className="relative rounded-lg border-0 my-2">
-                    <div className="relative flex items-center">
-                      <div className="absolute left-0 p-4">
-                        <Image
-                          src="/images/svgs/icon-location.svg"
-                          alt="Ubicación"
-                          height={24}
-                          width={24}
-                        />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Zona: Capital, Godoy Cruz, Luján de Cuyo..."
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                        onFocus={() => setShowSuggestions(true)}
-                        onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
-                        className="py-5 pr-3 pl-14 w-full rounded-lg text-black border border-border dark:text-white dark:border-dark_border focus:border-primary dark:focus:border-primary focus-visible:outline-none dark:bg-[#0c121e]"
-                      />
-                      {showSuggestions && (
-                        <div className="absolute left-0 right-0 top-full -mt-2 bg-white dark:bg-semidark border border-border rounded-md z-10 max-h-[130px] overflow-y-auto">
-                          <ul className="flex flex-col gap-2 py-4 px-8">
-                            {suggestions.map((item, index) => (
-                              <li
-                                key={index}
-                                onClick={() => handleSelect(item)}
-                              >
-                                <p className="cursor-pointer text-midnight_text dark:text-white text-lg hover:text-primary dark:hover:text-primary">{item}</p>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="mt-6 flex flex-col-reverse gap-4 md:justify-between">
-                    <div className="flex flex-col md:flex-row md:gap-4 w-full">
-                      <button
-                        onClick={() => handleSearch(currentTag)}
-                        className="flex-1 py-2 md:py-4 text-lg md:text-xl px-4 md:px-8 bg-primary text-white rounded-lg hover:bg-primary/90 transition duration-300 mb-2 md:mb-0 md:mr-2"
-                      >
-                        Buscar
-                      </button>
-                      <button
-                        onClick={() => { router.push('/properties/properties-list'); }}
-                        className="flex-1 py-2 md:py-4 text-lg md:text-xl px-4 md:px-8 bg-secondary/80 dark:bg-secondary/80 border border-transparent text-white rounded-lg hover:bg-secondary transition duration-300 text-nowrap"
-                      >
-                        Ver todas
-                      </button>
-                    </div>
-                    {error && (
-                      <p className="text-red-600 text-sm mt-2 md:mt-0">{error}</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-start ml-4 mt-8 mb-12 gap-3">
-              <div className="flex space-x-2" data-aos="fade-left">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 .587l3.668 7.431L24 9.763l-6 5.847L19.336 24 12 20.019 4.664 24 6 15.61 0 9.763l8.332-1.745z" />
-                  </svg>
-                ))}
-              </div>
-              <div data-aos="fade-left">
-                <p className="text-lg dark:text-white text-black">
-                  +50 propiedades en Mendoza
-                  <span className="text-gray-400"> · Atención personalizada</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="lg:block hidden col-span-6 absolute xl:-right-60 right-0 bottom-0 -z-1" style={{ width: "50%" }}>
-            <Slider
-              autoplay
-              autoplaySpeed={4000}
-              infinite
-              speed={600}
-              slidesToShow={1}
-              slidesToScroll={1}
-              arrows={false}
-              dots={false}
+          ))}
+        </Slider>
+      </div>
+
+      {/* Overlay oscuro para legibilidad */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
+
+      {/* Contenido centrado sobre el slider */}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center px-4">
+
+        <h1
+          className="text-white text-center text-3xl md:text-5xl font-bold mb-8 drop-shadow-lg"
+          data-aos="fade-down"
+        >
+          Encontrá tu propiedad ideal en Mendoza
+        </h1>
+
+        <div className="w-full max-w-2xl" data-aos="fade-up">
+          {/* Tabs */}
+          <div className="flex gap-1">
+            <button
+              className={`px-9 py-3 text-xl rounded-t-md focus:outline-none transition-colors ${
+                activeTab === "venta"
+                  ? "bg-white text-midnight_text border-b-2 border-primary"
+                  : "text-white bg-white/20 hover:bg-white/30"
+              }`}
+              onClick={() => setActiveTab("venta")}
             >
-              {["/images/hero/slide-1.webp", "/images/hero/slide-2.webp", "/images/hero/slide-3.webp"].map((src, i) => (
-                <div key={i}>
+              Venta
+            </button>
+            <button
+              className={`px-9 py-3 text-xl rounded-t-md focus:outline-none transition-colors ${
+                activeTab === "alquiler"
+                  ? "bg-white text-midnight_text border-b-2 border-primary"
+                  : "text-white bg-white/20 hover:bg-white/30"
+              }`}
+              onClick={() => setActiveTab("alquiler")}
+            >
+              Alquiler
+            </button>
+          </div>
+
+          {/* Formulario de búsqueda */}
+          <div className="bg-white rounded-b-lg rounded-tr-lg shadow-2xl p-6">
+            <div className="relative rounded-lg border-0 mb-4">
+              <div className="relative flex items-center">
+                <div className="absolute left-0 p-4">
                   <Image
-                    src={src}
-                    alt={`Módica Inmobiliaria ${i + 1}`}
-                    width={800}
-                    height={0}
-                    style={{ width: "100%", height: "auto" }}
+                    src="/images/svgs/icon-location.svg"
+                    alt="Ubicación"
+                    height={24}
+                    width={24}
                   />
                 </div>
-              ))}
-            </Slider>
+                <input
+                  type="text"
+                  placeholder="Zona: Capital, Godoy Cruz, Luján de Cuyo..."
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  onFocus={() => setShowSuggestions(true)}
+                  onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                  className="py-4 pr-3 pl-14 w-full rounded-lg text-black border border-border focus:border-primary focus-visible:outline-none"
+                />
+                {showSuggestions && suggestions.length > 0 && (
+                  <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-border rounded-md z-10 max-h-[130px] overflow-y-auto shadow-lg">
+                    <ul className="flex flex-col gap-2 py-4 px-8">
+                      {suggestions.map((item, index) => (
+                        <li key={index} onClick={() => handleSelect(item)}>
+                          <p className="cursor-pointer text-midnight_text text-lg hover:text-primary">{item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-3">
+              <button
+                onClick={() => handleSearch(currentTag)}
+                className="flex-1 py-3 text-lg px-8 bg-primary text-white rounded-lg hover:bg-primary/90 transition duration-300 font-semibold"
+              >
+                Buscar
+              </button>
+              <button
+                onClick={() => router.push('/properties/properties-list')}
+                className="flex-1 py-3 text-lg px-8 bg-secondary text-white rounded-lg hover:bg-secondary/90 transition duration-300 font-semibold"
+              >
+                Ver todas
+              </button>
+            </div>
+            {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
           </div>
         </div>
+
+        {/* Estrellas */}
+        <div className="flex flex-col items-center mt-6 gap-2" data-aos="fade-up">
+          <div className="flex space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .587l3.668 7.431L24 9.763l-6 5.847L19.336 24 12 20.019 4.664 24 6 15.61 0 9.763l8.332-1.745z" />
+              </svg>
+            ))}
+          </div>
+          <p className="text-white text-sm drop-shadow">
+            +50 propiedades en Mendoza <span className="text-white/70">· Atención personalizada</span>
+          </p>
+        </div>
+
       </div>
     </section>
   );
